@@ -196,7 +196,19 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> 
+
+     <!-- Chatbot UI --->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-hearder">Chat with AI</div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chat-input" placeholder="Ask me anything..."/>
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <button onclick="toggleChatbot()" class="fixed button-4 right-4 p-2 bg-blue-600 text-white rounded-full">Chat</button>
+    <script src="chatbot.js"></script> <!--Include the chatbot script-->
     
 
     <!-- Hero Section -->
@@ -387,18 +399,6 @@
             </div>
         </div>
     </section> 
-
-    <!-- Chatbot UI --->
-    <div class="chatbot" id="chatbot">
-        <div class="chatbot-hearder">Chat with AI</div>
-        <div class="chatbot-messages" id="chatbot-messages"></div>
-        <div class="chatbot-input">
-            <input type="text" id="chat-input" placeholder="Ask me anything..."/>
-            <button id="send-btn">Send</button>
-        </div>
-    </div>
-    <button onclick="toggleChatbot()" class="fixed button-4 right-4 p-2 bg-blue-600 text-white rounded-full">Chat</button>
-    <script src="chatbot.js"></script> <!--Include the chatbot script-->
 
     <!-- Study Planner Tool -->
     <section class="py-20 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
