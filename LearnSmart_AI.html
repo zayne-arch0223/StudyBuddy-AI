@@ -106,6 +106,73 @@
         .difficulty-easy { color: #10b981; }
         .difficulty-medium { color: #f59e0b; }
         .difficulty-hard { color: #ef4444; }
+        .chatbot {
+            position: fixed;
+            button: 1rem;
+            right: 1rem;
+            width: 300px;
+            max-height: 400px;
+            background: white;
+            border-radius: 8px;
+            box-shadow; 0 0 10px rgba(0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+        }
+        .chatbot.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+        .chatbot-header {
+            background: #667eea;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .chatbot-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 300px; /* Max height for scrolling*/
+            border-bottom: 1px solid #ccc;
+        }
+        .chatbot-input{
+            display: flex;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0 0 0 8px;
+            outline: none;
+        }
+        .chatbot-input button {
+            padding: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 0 0 8px 0;
+        }
+        .message {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+        .message.user {
+            background: #e3f2fd;
+            align-self: flex-end;
+        }
+        .message.bot {
+            background: #f1f1f1;
+            align-self: flex-start;
+        }
+        .message.typing {
+            font-style: italic;
+            color: #999;
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 smooth-scroll">
@@ -116,7 +183,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2 cursor-pointer" onclick="window.scrollTo(0,0)">
                     <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">L</div>
-                    <span class="brand-font text-xl font-bold gradient-text">LearnSmart AI</span>
+                    <span class="brand-font text-xl font-bold gradient-text">AI Study Buddy</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#features" class="text-sm font-medium hover:text-indigo-600 transition-colors">Features</a>
@@ -130,6 +197,18 @@
             </div>
         </div>
     </nav>
+    
+    <!-- Chatbot UI --->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-hearder">Chat with AI</div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input type="text" id="chat-input" placeholder="Ask me anything..."/>
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+    <button onclick="toggleChatbot()" class="fixed button-4 right-4 p-2 bg-blue-600 text-white rounded-full">Chat</button>
+    <script src="chatbot.js"></script> <!--Include the chatbot script-->
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
